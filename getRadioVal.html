@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery 获取单选按钮值方法</title>
+	<script src="http://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+</head>
+<body>
+	<form action="#">
+		
+		<input type="radio" name="xg" value="1" checked="checked">
+		<input type="radio" name="xg" value="2">
+
+		<input type="button" id="btn" value="小官" />
+
+	</form>
+	
+	<script>
+	/**
+	* jQuery getRadioVal -- 获取单选按钮值方法
+	* Param radioName -- 单选按钮名称
+	**/
+	function getRadioVal(radioName){
+		var myRadio = $("input[name="+radioName+"]");
+		var getRadioVal = 0;
+		for (var i = myRadio.length - 1; i >= 0; i--) {
+			if(myRadio[i].checked==true){
+				getRadioVal = myRadio[i].value;
+			}
+		}
+		return getRadioVal;
+	}
+	
+	//示例
+	$("#btn").click(function(){
+		var redioVal = getRadioVal('xg');
+		console.log(redioVal);	
+	});
+		
+	</script>
+
+</body>
+</html>
